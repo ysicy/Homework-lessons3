@@ -40,8 +40,8 @@ public class Automation_Practice_Form {
         $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#uploadPicture").uploadFromClasspath("1.png");
         $("#currentAddress").setValue("Maybe");
-        $("#react-select-3-input").setValue("Haryana").pressEnter();
-        $("#react-select-4-input").setValue("Karnal").pressEnter();
+        $("#stateCity-wrapper #state input").setValue("Haryana").pressEnter();
+        $("#stateCity-wrapper #city input").setValue("Karnal").pressEnter();
         $("#submit").click();
         $(".modal-content").shouldHave(text("Alex Sh"));
         $(".modal-content").shouldHave(text("user@email.com"));
