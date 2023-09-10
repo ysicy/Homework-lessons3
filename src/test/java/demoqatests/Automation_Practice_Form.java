@@ -43,15 +43,15 @@ public class Automation_Practice_Form {
         $("#react-select-3-input").setValue("Haryana").pressEnter();
         $("#react-select-4-input").setValue("Karnal").pressEnter();
         $("#submit").click();
-        $(".table-responsive").shouldHave(text("Alex Sh"));
-        $(".table-responsive").shouldHave(text("user@email.com"));
-        $(".table-responsive").shouldHave(text("Male"));
-        $(".table-responsive").shouldHave(text("1234567890"));
-        $(".table-responsive").shouldHave(text("02 September,2023"));
-        $(".table-responsive").shouldHave(text("Maths"));
-        $(".table-responsive").shouldHave(text("Sports"));
-        $(".table-responsive").shouldHave(text("1.png"));
-        $(".table-responsive").shouldHave(text("Maybe"));
-        $(".table-responsive").shouldHave(text("Haryana Karnal"));
+        $(".modal-content").shouldHave(text("Alex Sh"));
+        $(".modal-content").shouldHave(text("user@email.com"));
+        $(".modal-content").shouldHave(text("Male"));
+        $(".modal-content").shouldHave(text("1234567890"));
+        $(".modal-content").shouldHave(text("02 September,2023"));
+        $(".modal-content").shouldHave(text("Maths"));
+        $(".modal-content").shouldHave(text("Sports"));
+        $(".modal-content").shouldHave(text("1.png"));
+        $(".modal-content").shouldHave(text("Maybe"));
+        $(".modal-content").shouldHave(text("Haryana Karnal"));
     }
 }
