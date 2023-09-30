@@ -25,7 +25,8 @@ public class AutomationPracticeFormWithPageObjects extends  TestBase {
                 .setLastName("Sh")
                 .setUserEmail("user@email.com")
                 .setGender("Male")
-                .setUserNumber("1234567890");
+                .setUserNumber("1234567890")
+                .setDateForm("002", "September", "2023");
 
 
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
@@ -34,10 +35,8 @@ public class AutomationPracticeFormWithPageObjects extends  TestBase {
         $("#userEmail").setValue("user@email.com");
         $("#genterWrapper").$(byText("Male")).click();
         $("#userNumber").setValue("1234567890");
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOption("September");
-        $(".react-datepicker__year-select").selectOption("2023");
-        $(".react-datepicker__day--002").click();
+
+
         $("#subjectsInput").setValue("Maths").pressEnter();
         $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#uploadPicture").uploadFromClasspath("1.png");
