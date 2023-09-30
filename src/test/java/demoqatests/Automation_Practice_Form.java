@@ -9,17 +9,8 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$;
 
-public class Automation_Practice_Form {
+public class Automation_Practice_Form extends  TestBase {
 
-
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.holdBrowserOpen = false;
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.pageLoadStrategy = "eager";
-        Configuration.browserSize = "1920x1080";
-
-}
     @Test
     void fillFormTest() {
         open("/automation-practice-form");
@@ -43,6 +34,11 @@ public class Automation_Practice_Form {
         $("#stateCity-wrapper #state input").setValue("Haryana").pressEnter();
         $("#stateCity-wrapper #city input").setValue("Karnal").pressEnter();
         $("#submit").click();
+
+
+
+
+
         $(".modal-content").shouldHave(text("Alex Sh"));
         $(".modal-content").shouldHave(text("user@email.com"));
         $(".modal-content").shouldHave(text("Male"));
