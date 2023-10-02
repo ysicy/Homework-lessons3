@@ -17,10 +17,18 @@ public class RegistrationPage {
      lastNameInput = $("#lastName"),
      userEmailInput = $("#userEmail"),
      genderWrapper = $("#genterWrapper"),
-     userNumberInput=  $("#userNumber");
+     userNumberInput=  $("#userNumber"),
+     subjectsInput = $("#subjectsInput"),
+    youHobbiesWrapper = $("#hobbiesWrapper"),
+    uploadPicture =   $("#uploadPicture"),
+    currentAddress = $("#currentAddress"),
+    stateWrapper = $("#stateCity-wrapper #state input"),
+    cityWrapper = $("#stateCity-wrapper #city input"),
+    submit = $("#submit");
 
 
     public RegistrationPage openPage () {
+
         open("/automation-practice-form");
         executeJavaScript("$('#fixedban').remove()");
         titleLabel.shouldHave(text("Student Registration Form"));
@@ -29,19 +37,12 @@ public class RegistrationPage {
         return this;
     }
 
-
-
-
     //Actions
     public RegistrationPage setFirstName (String value) {
         firstNameInput.setValue(value);
 
         return this;
     }
-    //not used
-//    public RegistrationPage clickFirstName () {
-//        firstNameInput.click();
-//    }
 
     public RegistrationPage setLastName (String value) {
         lastNameInput.setValue(value);
@@ -66,6 +67,47 @@ public class RegistrationPage {
     public RegistrationPage setDateForm (String day, String month, String year) {
         calendar.setDate("002", "September", "2023");
 
+
+        return this;
+    }
+    public RegistrationPage setSubjects (String value) {
+        subjectsInput.setValue("Maths").pressEnter();
+
+        return this;
+    }
+    public RegistrationPage setHobbiesWrapper (String value) {
+        youHobbiesWrapper.$(byText("Sports")).click();
+
+        return this;
+    }
+    public RegistrationPage setUploadPicture (String value) {
+        uploadPicture.uploadFromClasspath(value);
+
+        return this;
+    }
+    public RegistrationPage setCurrentAddress (String value) {
+        currentAddress.setValue(value);
+
+        return this;
+    }
+    public RegistrationPage setStateWrapper (String value) {
+        stateWrapper.setValue("Haryana").pressEnter();
+
+        return this;
+    }
+    public RegistrationPage setCityWrapper (String value) {
+        cityWrapper.setValue("Karnal").pressEnter();
+
+        return this;
+    }
+    public RegistrationPage clickSubmit (String value) {
+        submit.click();
+
+        return this;
+    }
+    public RegistrationPage checkResult (String key, String value) {
+$(".table-responsive").$(byText(key)).parent()
+        .shouldHave(text(value));
 
         return this;
     }
