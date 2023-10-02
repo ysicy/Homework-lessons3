@@ -2,8 +2,10 @@ package demoqatests;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
+import pages.TextBoxPage;
 
 public class TestBase {
+    public TextBoxPage textBoxTest = new TextBoxPage();
 
     @BeforeAll
     static void beforeAll() {
@@ -13,5 +15,6 @@ public class TestBase {
         Configuration.browserSize = "1920x1080";
 
     }
+
 
 }

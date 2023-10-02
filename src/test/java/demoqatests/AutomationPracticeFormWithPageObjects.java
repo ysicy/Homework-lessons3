@@ -1,12 +1,11 @@
 package demoqatests;
 
-import com.codeborne.selenide.SelenideElement;
+
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
+
+
 
 public class AutomationPracticeFormWithPageObjects extends  TestBase {
 
@@ -16,48 +15,30 @@ public class AutomationPracticeFormWithPageObjects extends  TestBase {
     void fillFormTest() {
 
 
-
-        SelenideElement LastNameInput = $("#lastName");
-
-
         registrationPage.openPage()
                 .setFirstName("Alex")
                 .setLastName("Sh")
                 .setUserEmail("user@email.com")
                 .setGender("Male")
                 .setUserNumber("1234567890")
-                .setDateForm("002", "September", "2023");
+                .setDateForm("002", "September", "2023")
+                .setSubjects("Maths")
+                .setHobbiesWrapper("Sports")
+                .setUploadPicture("1.png")
+                .setCurrentAddress("Maybe")
+                .setStateWrapper("Haryana")
+                .setCityWrapper("Karnal").clickSubmit("submit");
 
+        registrationPage.checkResult("Student Name","Alex Sh")
+                .checkResult("Student Email", "user@email.com")
+                .checkResult("Mobile", "1234567890")
+                .checkResult("Gender","Male")
+                .checkResult("Date of Birth","02 September,2023" )
+                .checkResult("Subjects","Maths")
+                .checkResult("Hobbies","Sports")
+                .checkResult("Picture","1.png")
+                .checkResult("Address","Maybe")
+                .checkResult("State and City","Haryana Karnal");
 
-        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
-        $("#firstName").setValue("Alex");
-        $("#lastName").setValue("Sh");
-        $("#userEmail").setValue("user@email.com");
-        $("#genterWrapper").$(byText("Male")).click();
-        $("#userNumber").setValue("1234567890");
-
-
-        $("#subjectsInput").setValue("Maths").pressEnter();
-        $("#hobbiesWrapper").$(byText("Sports")).click();
-        $("#uploadPicture").uploadFromClasspath("1.png");
-        $("#currentAddress").setValue("Maybe");
-        $("#stateCity-wrapper #state input").setValue("Haryana").pressEnter();
-        $("#stateCity-wrapper #city input").setValue("Karnal").pressEnter();
-        $("#submit").click();
-
-
-
-
-
-        $(".modal-content").shouldHave(text("Alex Sh"));
-        $(".modal-content").shouldHave(text("user@email.com"));
-        $(".modal-content").shouldHave(text("Male"));
-        $(".modal-content").shouldHave(text("1234567890"));
-        $(".modal-content").shouldHave(text("02 September,2023"));
-        $(".modal-content").shouldHave(text("Maths"));
-        $(".modal-content").shouldHave(text("Sports"));
-        $(".modal-content").shouldHave(text("1.png"));
-        $(".modal-content").shouldHave(text("Maybe"));
-        $(".modal-content").shouldHave(text("Haryana Karnal"));
     }
 }
