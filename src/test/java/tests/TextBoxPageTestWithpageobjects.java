@@ -1,15 +1,15 @@
-package demoqatests;
+package tests;
 
 import org.junit.jupiter.api.Test;
+import pages.TextBoxPage;
 
 
-public class TextBoxPageTestWithpageobjects extends  TestBase {
-
-
+public class TextBoxPageTestWithpageobjects extends TestBase {
+    public TextBoxPage textBoxTest = new TextBoxPage();
 
     @Test
     void fillFormTest() {
-        //test
+//test
         textBoxTest.openPage()
                 .setUserName("Alex")
                 .setUserEmail("alex@mail.ru")
