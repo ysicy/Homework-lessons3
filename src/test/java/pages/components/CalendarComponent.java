@@ -11,9 +11,9 @@ public void setDate (String day, String month, String year){
     $(".react-datepicker__year-select").selectOption(year);
     $(".react-datepicker__day--0" + day).click();
 
-    $(".react-datepicker__month-select").selectOption("September");
-    $(".react-datepicker__year-select").selectOption("2023");
-    $(".react-datepicker__day--002").click();
+    $(".react-datepicker__month-select").selectOption(month);
+    $(".react-datepicker__year-select").selectOption(year);
+    $(".react-datepicker__day--0" + day).click();
 
 }
 }
