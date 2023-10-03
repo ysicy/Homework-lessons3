@@ -1,12 +1,13 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import pages.components.DefaultSettingsPage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
-public class TextBoxPage {
+public class TextBoxPage   extends DefaultSettingsPage {
 
 
     SelenideElement mainHeaderText = $(".main-header"),
@@ -18,9 +19,7 @@ public class TextBoxPage {
             result = $("#output");
     public TextBoxPage openPage() {
         open("/text-box");
-        mainHeaderText.shouldHave(text("Text Box"));
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
+        removeBanners();
         return this;
     }
     public TextBoxPage setUserName(String value) {
