@@ -30,7 +30,7 @@ public class AutomationPracticeFormWithPageObjects extends TestBase {
     @Test
     void fillFormTest() {
 
-        registrationPage.removeFooterAndBanner()
+        registrationPage
                 .openPage(URL)
                 .setFirstName(firstNameInput)
                 .setLastName(lastNameInput)

@@ -32,11 +32,9 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage removeFooterAndBanner() {
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
-        return this;
+    private void removeBanners() {
     }
+
 
     //Actions
     public RegistrationPage setFirstName(String firstName) {
