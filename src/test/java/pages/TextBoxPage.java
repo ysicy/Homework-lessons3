@@ -1,13 +1,12 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
-import pages.components.DefaultSettingsPage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
-public class TextBoxPage   extends DefaultSettingsPage {
+public class TextBoxPage {
 
 
     SelenideElement mainHeaderText = $(".main-header"),
@@ -17,6 +16,10 @@ public class TextBoxPage   extends DefaultSettingsPage {
             permanentAddressTextArea = $("#permanentAddress"),
             submitButton = $(".btn-primary"),
             result = $("#output");
+    public void removeBanners() {
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+    }
     public TextBoxPage openPage() {
         open("/text-box");
         removeBanners();

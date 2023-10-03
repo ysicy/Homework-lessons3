@@ -2,14 +2,13 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
-import pages.components.DefaultSettingsPage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
-public class RegistrationPage extends DefaultSettingsPage {
+public class RegistrationPage {
 
     //Elements
     CalendarComponent calendar = new CalendarComponent();
@@ -26,6 +25,10 @@ public class RegistrationPage extends DefaultSettingsPage {
             stateWrapper = $("#stateCity-wrapper #state input"),
             cityWrapper = $("#stateCity-wrapper #city input"),
             submit = $("#submit");
+    public void removeBanners() {
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+    }
 
     public RegistrationPage openPage(String url) {
         open(url);
@@ -33,11 +36,7 @@ public class RegistrationPage extends DefaultSettingsPage {
 
         return this;
     }
-
-
-
-
-    //Actions
+        //Actions
     public RegistrationPage setFirstName(String firstName) {
         firstNameInput.setValue(firstName);
 
