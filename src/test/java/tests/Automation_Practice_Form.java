@@ -1,7 +1,5 @@
-package demoqatests;
+package tests;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -9,7 +7,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$;
 
-public class Automation_Practice_Form extends  TestBase {
+public class Automation_Practice_Form extends TestBase {
 
     @Test
     void fillFormTest() {
@@ -34,9 +32,6 @@ public class Automation_Practice_Form extends  TestBase {
         $("#stateCity-wrapper #state input").setValue("Haryana").pressEnter();
         $("#stateCity-wrapper #city input").setValue("Karnal").pressEnter();
         $("#submit").click();
-
-
-
 
 
         $(".modal-content").shouldHave(text("Alex Sh"));
