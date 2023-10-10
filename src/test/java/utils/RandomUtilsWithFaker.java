@@ -2,7 +2,6 @@ package utils;
 
 import com.github.javafaker.Faker;
 
-import java.util.concurrent.ThreadLocalRandom;
 
 
 public class RandomUtilsWithFaker {
@@ -16,7 +15,6 @@ public class RandomUtilsWithFaker {
 
 
 }
-
     public String getRandomGender() {
         String[] genders = {"Male", "Female", "Other"};
         return faker.options().option(genders);
