@@ -11,6 +11,7 @@ version '1.0'
 
 dependencies {
     testImplementation (
+            'com.github.javafaker:javafaker:1.0.2',
             "com.codeborne:selenide:6.17.1",
             "org.junit.jupiter:junit-jupiter-api:5.9.3")
     testRuntimeOnly(
