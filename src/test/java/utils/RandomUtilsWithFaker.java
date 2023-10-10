@@ -2,7 +2,6 @@ package utils;
 
 import com.github.javafaker.Faker;
 
-import java.util.concurrent.ThreadLocalRandom;
 
 
 public class RandomUtilsWithFaker {
@@ -10,12 +9,12 @@ public class RandomUtilsWithFaker {
 
    public String getFirstName = faker.name().fullName(),
            getLastName = faker.name().firstName(),
-     getRandomEmail = faker.internet().emailAddress(),
+           getRandomEmail = faker.internet().emailAddress(),
 
-     getRandomAddress = faker.address().streetAddress();
+           getRandomCurrentAddress = faker.address().streetAddress(),
+           getDayOfBirth = String.valueOf(faker.number().numberBetween(1, 28),
+    getYearOfBirth = String.valueOf(faker.number().numberBetween(1901, 2020));
 
-
-}
 
     public String getRandomGender() {
         String[] genders = {"Male", "Female", "Other"};
@@ -30,4 +29,8 @@ public class RandomUtilsWithFaker {
         String[] subjects = {"Maths", "Chemistry", "computer Science", "Commerce", "Economics"};
         return faker.options().option(subjects);
     }
-}
+
+
+    String monthOfBirth = faker.options().option("January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"),
+    }

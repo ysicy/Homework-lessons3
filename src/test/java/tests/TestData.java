@@ -2,50 +2,38 @@ package tests;
 
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
+import utils.RandomUtilsWithFaker;
 
 import static utils.RandomUtilsWithFaker.*;
 
 public class TestData extends TestBase {
 
-
-
-     String firstNameInput = getRandomString(10);
-    String lastNameInput = getRandomString(10);
-    String userEmailInput = getRandomEmail ();
-    String currentAddress = getRandomAddress();
-    String genderWrapper = getRandomGender();
-    String youHobbiesWrapper = getRandomHobbies();
-    String subjectsInput = getRandomSubjects();
-    String userNumberInput = getRandomPhone();
-    int day = getRandomDay();
-    String month = getRandomMonth();
-    int year = getRandomYear();
-
     private static final String URL = "/automation-practice-form";
 
     RegistrationPage registrationPage = new RegistrationPage();
+    RandomUtilsWithFaker random = new RandomUtilsWithFaker();
 
     @Test
     void fillFormTest() {
 
         registrationPage
                 .openPage(URL)
-                .setFirstName(firstNameInput)
-                .setLastName(lastNameInput)
-                .setUserEmail(userEmailInput)
-               .setGender(genderWrapper)
-                .setUserNumber(userNumberInput)
-//               .setDateForm(day, month, year)
-                .setSubjects(subjectsInput)
-                .setHobbiesWrapper(youHobbiesWrapper)
+                .setFirstName(random.getFirstName)
+                .setLastName(random.getLastName)
+                .setUserEmail(random.getRandomEmail)
+               .setGender(random.getRandomGender())
+//                .setUserNumber()
+               .setDateForm(random.getDayOfBirth, random., ra)
+                .setSubjects(random.getRandomSubjects())
+                .setHobbiesWrapper(random.getRandomHobbies())
 //                .setUploadPicture(uploadPicture)
-                .setCurrentAddress(currentAddress)
+                .setCurrentAddress(random.getRandomCurrentAddress)
 //                .setStateWrapper(stateWrapper)
 //                .setCityWrapper(cityWrapper)
                 .clickSubmit();
 
-        registrationPage.checkResult("Student Name", firstNameInput + " " + lastNameInput)
-                .checkResult("Student Email", userEmailInput)
+        registrationPage.checkResult("Student Name", random.getFirstName + " " + random.getLastName)
+                .checkResult("Student Email", random.getRandomEmail)
                .checkResult("Mobile", userNumberInput)
                .checkResult("Gender", genderWrapper)
 //               .checkResult("Date of Birth", day + " " + month + "," + year)
