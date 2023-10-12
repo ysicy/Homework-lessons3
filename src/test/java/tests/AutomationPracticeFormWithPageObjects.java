@@ -4,7 +4,6 @@ package tests;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
-import static com.codeborne.selenide.Selenide.$;
 
 
 public class AutomationPracticeFormWithPageObjects extends TestBase {

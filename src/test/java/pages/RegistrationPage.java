@@ -1,11 +1,11 @@
 package pages;
 
-import com.codeborne.selenide.Selenide;
+
 import com.codeborne.selenide.SelenideElement;
+import org.junit.jupiter.api.Assertions;
 import pages.components.CalendarComponent;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.value;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
@@ -27,6 +27,7 @@ public class RegistrationPage {
             stateWrapper = $("#stateCity-wrapper #state input"),
             cityWrapper = $("#stateCity-wrapper #city input"),
             submit = $("#submit");
+
     public void removeBanners() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
@@ -38,7 +39,8 @@ public class RegistrationPage {
 
         return this;
     }
-        //Actions
+
+    //Actions
     public RegistrationPage setFirstName(String firstName) {
         firstNameInput.setValue(firstName);
 
@@ -89,7 +91,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setUploadPicture(String picture) {
-        uploadPicture.uploadFromClasspath("1.png");
+        uploadPicture.uploadFromClasspath(picture);
 
         return this;
     }
@@ -117,17 +119,22 @@ public class RegistrationPage {
     }
 
     public RegistrationPage checkResult(String key, String value) {
-        String Hop = $(".table-responsive").$(byText(key)).parent()
-                .getValue();
+        $(".table-responsive").$(byText(key)).parent()
+                .shouldHave(text(value));
 
-        System.out.println(Hop);
-//        System.out.println($(".table-responsive").$(byText(key)).parent()
-//                .getValue());
         return this;
     }
 
+    public RegistrationPage checkPictureResult(String key, String value) {
+        System.out.println("value:" + value);
+        String ho = $(".table-responsive").$(byText(key)).parent().lastChild().getText();
+        System.out.println("ho:" + ho);
+        Assertions.assertEquals(value, ho);
 
-    public RegistrationPage setDateFakeForm(String day, String month, String year) {
+        return this;
+    }
+
+    public RegistrationPage setDateFakeForm(Integer day, String month, String year) {
         calendar.setFakeDate(day, month, year);
 
         return this;

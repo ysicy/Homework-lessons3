@@ -13,7 +13,7 @@ public class RandomUtilsWithFaker {
     final String[] genders = new String[]{"Male", "Female", "Other"},
             subject = new String[]{"Maths", "Chemistry", "Computer Science", "Commerce", "Economics"},
             hobby = new String[]{"Sports", "Reading", "Music"},
-            pictures = new  String[]{"1.png","2.png"};
+            pictures = new String[]{"1.png", "2.png"};
     final Map<String, String[]> stateAndCity = new HashMap<>();
 
     {
@@ -23,54 +23,45 @@ public class RandomUtilsWithFaker {
         stateAndCity.put("Rajasthan", new String[]{"Jaipur", "Jaiselmer"});
     }
 
+    public Integer dayOfBirth = faker.number().numberBetween(1, 28);
 
     public String firstName = faker.name().firstName(),
             lastName = faker.name().lastName(),
             email = faker.internet().emailAddress(),
             gender = getRandomGender(),
             userNumberInput = faker.phoneNumber().subscriberNumber(10),
-            dayOfBirth = String.valueOf(faker.number().numberBetween(1, 28)),
-            monthOfBirth = faker.options().option("January", "February", "March", "April", "May", "June",
-                    "July", "August", "September", "October", "November", "December"),
+
+    monthOfBirth = faker.options().option("January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"),
             yearOfBirth = String.valueOf(faker.number().numberBetween(1901, 2023)),
 
 
-
-
     subjects = getRandomSubjects(),
-    hobbies = getRandomHobbies(),
-    picture = getRandomPicture(),
-    randomAddress = faker.address().fullAddress(),
-    State = getRandomStates(),
-    dateFake = getRandomFakerDate(),
+            hobbies = getRandomHobbies(),
+            picture = getRandomPicture(),
+            randomAddress = faker.address().fullAddress(),
+            State = getRandomStates(),
+            City = getRandomCities(State);
 
 
-    City = getRandomCities(State);
-
-
-    public String getRandomGender() {
-
-        return faker.options().option(genders);
-    }
+    public String getRandomGender() {return faker.options().option(genders);}
 
     public String getRandomHobbies() {
-           return faker.options().option(hobby);
-    }
-
-    public String getRandomFakerDate() {
-        return dayOfBirth.concat(" ").concat(monthOfBirth).concat(" ").concat(yearOfBirth);
+        return faker.options().option(hobby);
     }
 
     public String getRandomSubjects() {
         return faker.options().option(subject);
     }
 
-    public String getRandomPicture(){
+    public String getRandomPicture() {
         return faker.options().option(pictures);
     }
+
     public String getRandomStates() {
         return faker.options().option(stateAndCity.keySet().toArray()).toString();
     }
+
     public String getRandomCities(String state) {
         return faker.options().option(stateAndCity.get(state));
     }
