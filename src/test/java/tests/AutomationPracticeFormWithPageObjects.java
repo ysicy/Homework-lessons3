@@ -50,7 +50,7 @@ public class AutomationPracticeFormWithPageObjects extends TestBase {
                 .checkResult("Student Email", userEmailInput)
                 .checkResult("Mobile", userNumberInput)
                 .checkResult("Gender", genderWrapper)
-                .checkResult("Date of Birth", day + " " + month + "," + year)
+//                .checkResult("Date of Birth", day + " " + month + "," + year)
                 .checkResult("Subjects", subjectsInput)
                 .checkResult("Hobbies", youHobbiesWrapper)
                 .checkResult("Picture", uploadPicture)

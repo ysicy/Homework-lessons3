@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import utils.RandomUtilsWithFaker;
@@ -9,6 +10,7 @@ import static utils.RandomUtilsWithFaker.*;
 public class TestData extends TestBase {
 
 
+//    private static final String URL = "/automation-practice-form";
     private static final String URL = "/automation-practice-form";
 
     RegistrationPage registrationPage = new RegistrationPage();
@@ -25,7 +27,8 @@ public class TestData extends TestBase {
                 .setUserEmail(random.email)
                .setGender(random.gender)
                 .setUserNumber(random.userNumberInput)
-//               .setDateForm(random.dayOfBirth,random.monthOfBirth,random.yearOfBirth)
+//               .setDateFakeForm(random.dateFake)
+               .setDateFakeForm(random.dayOfBirth, random.monthOfBirth, random.yearOfBirth)
                 .setSubjects(random.subjects)
                 .setHobbiesWrapper(random.hobbies)
                 .setUploadPicture(random.picture)
@@ -38,7 +41,7 @@ public class TestData extends TestBase {
                 .checkResult("Student Email", random.email)
                .checkResult("Mobile", random.userNumberInput)
                .checkResult("Gender", random.gender)
-//               .checkResult("Date of Birth", random.dayOfBirth + " " + random.monthOfBirth + "," + random.yearOfBirth)
+               .checkResult("Date of Birth", random.dayOfBirth + " " + random.monthOfBirth + "," + random.yearOfBirth)
                 .checkResult("Subjects",random.subjects)
                 .checkResult("Hobbies", random.hobbies)
                 .checkResult("Picture", random.picture)

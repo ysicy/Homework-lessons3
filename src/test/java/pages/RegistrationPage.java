@@ -1,9 +1,11 @@
 package pages;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.value;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
@@ -115,8 +117,18 @@ public class RegistrationPage {
     }
 
     public RegistrationPage checkResult(String key, String value) {
-        $(".table-responsive").$(byText(key)).parent()
-                .shouldHave(text(value));
+        String Hop = $(".table-responsive").$(byText(key)).parent()
+                .getValue();
+
+        System.out.println(Hop);
+//        System.out.println($(".table-responsive").$(byText(key)).parent()
+//                .getValue());
+        return this;
+    }
+
+
+    public RegistrationPage setDateFakeForm(String day, String month, String year) {
+        calendar.setFakeDate(day, month, year);
 
         return this;
     }

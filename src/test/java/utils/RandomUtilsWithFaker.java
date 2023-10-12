@@ -32,13 +32,19 @@ public class RandomUtilsWithFaker {
             dayOfBirth = String.valueOf(faker.number().numberBetween(1, 28)),
             monthOfBirth = faker.options().option("January", "February", "March", "April", "May", "June",
                     "July", "August", "September", "October", "November", "December"),
-            yearOfBirth = String.valueOf(faker.number().numberBetween(1901, 2001)),
+            yearOfBirth = String.valueOf(faker.number().numberBetween(1901, 2023)),
+
+
+
 
     subjects = getRandomSubjects(),
     hobbies = getRandomHobbies(),
     picture = getRandomPicture(),
     randomAddress = faker.address().fullAddress(),
     State = getRandomStates(),
+    dateFake = getRandomFakerDate(),
+
+
     City = getRandomCities(State);
 
 
@@ -51,6 +57,10 @@ public class RandomUtilsWithFaker {
            return faker.options().option(hobby);
     }
 
+    public String getRandomFakerDate() {
+        return dayOfBirth.concat(" ").concat(monthOfBirth).concat(" ").concat(yearOfBirth);
+    }
+
     public String getRandomSubjects() {
         return faker.options().option(subject);
     }
@@ -59,11 +69,8 @@ public class RandomUtilsWithFaker {
         return faker.options().option(pictures);
     }
     public String getRandomStates() {
-
         return faker.options().option(stateAndCity.keySet().toArray()).toString();
-
     }
-
     public String getRandomCities(String state) {
         return faker.options().option(stateAndCity.get(state));
     }
