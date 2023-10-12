@@ -3,9 +3,7 @@ package tests;
 import org.junit.jupiter.api.Test;
 import pages.TextBoxPage;
 
-import java.net.URL;
 
-import static com.codeborne.selenide.Selenide.$;
 
 
 public class TextBoxPageTestWithpageobjects extends TestBase {

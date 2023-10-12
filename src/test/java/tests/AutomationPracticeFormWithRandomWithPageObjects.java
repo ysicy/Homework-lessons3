@@ -5,10 +5,8 @@ import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import utils.RandomUtilsWithFaker;
 
-import static utils.RandomUtilsWithFaker.*;
 
-
-public class TestData extends TestBase {
+public class AutomationPracticeFormWithRandomWithPageObjects extends TestBase {
 
 
 
@@ -33,8 +31,8 @@ public class TestData extends TestBase {
                 .setHobbiesWrapper(random.hobbies)
                 .setUploadPicture(random.picture)
                 .setCurrentAddress(random.randomAddress)
-                .setStateWrapper(random.State)
-                .setCityWrapper(random.City)
+                .setStateWrapper(random.state)
+                .setCityWrapper(random.city)
                 .clickSubmit();
 
         registrationPage.checkResult("Student Name", random.firstName + " " + random.lastName)
@@ -46,7 +44,7 @@ public class TestData extends TestBase {
                 .checkResult("Hobbies", random.hobbies)
                 .checkPictureResult("Picture", random.picture)
                 .checkResult("Address", random.randomAddress)
-                .checkResult("State and City", random.State + " " + random.City);
+                .checkResult("State and City", random.state + " " + random.city);
 
     }
 }

@@ -40,8 +40,8 @@ public class RandomUtilsWithFaker {
             hobbies = getRandomHobbies(),
             picture = getRandomPicture(),
             randomAddress = faker.address().fullAddress(),
-            State = getRandomStates(),
-            City = getRandomCities(State);
+            state = getRandomStates(),
+            city = getRandomCities(state);
 
 
     public String getRandomGender() {return faker.options().option(genders);}
